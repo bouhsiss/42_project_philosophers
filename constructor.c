@@ -43,7 +43,7 @@ t_philo *construct_philos(t_properties *data)
     while( ++i < philo_number)
     {
         philo[i].philo_id = i + 1;
-        philo[i].philo_t = (pthread_t *)malloc(sizeof(pthread_t) * philo_number);
+        philo[i].philo_t =malloc(sizeof(pthread_t) * philo_number);
         philo[i].r_fork = i;
         philo[i].l_fork = (i + 1)%philo_number;
         philo[i].meals_counter = 0;

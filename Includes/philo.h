@@ -10,7 +10,7 @@
 typedef struct s_philo 
 {
     int         philo_id;
-    pthread_t   *philo_t;
+    pthread_t   philo_t;
     int         r_fork;
     int         l_fork;
     int         meals_counter;
@@ -38,5 +38,6 @@ int	ft_atoi(const char *str);
 int check_syntax(char **av);
 int print_error(char *error_message);
 int getcurrenttime();
+void run_philos(t_properties *data);
 
 #endif
