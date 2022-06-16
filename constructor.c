@@ -66,9 +66,10 @@ t_properties *constructor(char **av)
         if (av[5])
             data->meals_nbr = ft_atoi(av[5]);
         else
-            data->meals_nbr = 0;
+            data->meals_nbr = -1;
         data->time_of_start = getcurrenttime();
         init_mutex(data);
+		data->should_end = 0;
         data->philo = construct_philos(data);
         return(data);
     }

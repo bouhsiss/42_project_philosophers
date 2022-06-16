@@ -27,7 +27,7 @@ typedef struct s_properties
     int     meals_nbr;
     long long   time_of_start;
     pthread_mutex_t write;
-    pthread_mutex_t eat;
+	int			should_end;
     pthread_mutex_t *forks;
     t_philo *philo;
 }   t_properties;
@@ -37,7 +37,9 @@ t_properties *constructor(char **av);
 int	ft_atoi(const char *str);
 int check_syntax(char **av);
 int print_error(char *error_message);
-int getcurrenttime();
+long long getcurrenttime();
 void run_philos(t_properties *data);
+int track_philos(t_properties *data);
+void print_status(t_philo *philo, char *status);
 
 #endif

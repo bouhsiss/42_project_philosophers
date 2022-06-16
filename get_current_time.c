@@ -1,9 +1,9 @@
 #include"philo.h"
 
-int getcurrenttime()
+long long getcurrenttime()
 {
     struct  timeval time;
 
     gettimeofday(&time, NULL);
-    return(time.tv_sec * 1000000 + time.tv_usec);
+    return((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
