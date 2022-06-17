@@ -11,7 +11,16 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g
 TFLAGS = -lpthread
 INCLUDES = -I ./Includes
-SRCS = *.c
+SRCS = main.c \
+./srcs/philo_tools/ft_atoi.c \
+./srcs/philo_tools/Print_error.c \
+./srcs/philo_tools/print_status.c \
+./srcs/philo_tools/Time_tools.c \
+./srcs/constructor.c \
+./srcs/Routine_actions.c \
+./srcs/start_philos.c \
+./srcs/track_philos.c \
+
 
 BONUS_NAME = 
 BONUS_SRCS = 

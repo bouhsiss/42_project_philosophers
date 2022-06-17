@@ -7,6 +7,7 @@
 # include <stdlib.h>
 # include <sys/time.h>
 
+
 typedef struct s_philo 
 {
     int         philo_id;
@@ -15,6 +16,7 @@ typedef struct s_philo
     int         l_fork;
     int         meals_counter;
     long long   last_meal;
+	pthread_mutex_t can_eat;
     struct s_properties *data;
 }   t_philo;
 
@@ -26,20 +28,25 @@ typedef struct s_properties
     int     time_to_sleep;
     int     meals_nbr;
     long long   time_of_start;
+	int		should_end;
     pthread_mutex_t write;
-	int			should_end;
     pthread_mutex_t *forks;
     t_philo *philo;
 }   t_properties;
  
-
-t_properties *constructor(char **av);
+//Routine_actions
+void philo_eat(t_philo *philo);
+void philo_sleep(t_philo *philo);
+void philo_think(t_philo *philo);
+//philo_tools
 int	ft_atoi(const char *str);
-int check_syntax(char **av);
 int print_error(char *error_message);
 long long getcurrenttime();
-void run_philos(t_properties *data);
-int track_philos(t_properties *data);
+void	ft_usleep(int time);
 void print_status(t_philo *philo, char *status);
+//main
+t_properties *constructor(char **av);
+void start_philos(t_properties *data);
+int track_philos(t_properties *data);
 
 #endif

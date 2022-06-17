@@ -29,6 +29,7 @@ void init_mutex(t_properties *data)
         pthread_mutex_init(&(data->forks[i]), NULL);
         i++;
     }
+	pthread_mutex_init(&(data->write), NULL);
 }
 
 t_philo *construct_philos(t_properties *data)
@@ -47,6 +48,7 @@ t_philo *construct_philos(t_properties *data)
         philo[i].r_fork = i;
         philo[i].l_fork = (i + 1)%philo_number;
         philo[i].meals_counter = 0;
+		pthread_mutex_init(&(philo[i].can_eat), NULL);
         philo[i].data = data;
     }
     return(philo);
@@ -67,9 +69,9 @@ t_properties *constructor(char **av)
             data->meals_nbr = ft_atoi(av[5]);
         else
             data->meals_nbr = -1;
+		data->should_end = 0;
         data->time_of_start = getcurrenttime();
         init_mutex(data);
-		data->should_end = 0;
         data->philo = construct_philos(data);
         return(data);
     }
