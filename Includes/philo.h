@@ -44,8 +44,7 @@ int print_error(char *error_message);
 long long getcurrenttime();
 void	ft_usleep(int time);
 void print_status(t_philo *philo, char *status);
-//main
-t_properties *constructor(char **av);
+void	constructor(t_properties *data, char **av);
 void start_philos(t_properties *data);
 int track_philos(t_properties *data);
 

@@ -44,7 +44,6 @@ t_philo *construct_philos(t_properties *data)
     while( ++i < philo_number)
     {
         philo[i].philo_id = i + 1;
-        philo[i].philo_t =malloc(sizeof(pthread_t) * philo_number);
         philo[i].r_fork = i;
         philo[i].l_fork = (i + 1)%philo_number;
         philo[i].meals_counter = 0;
@@ -54,11 +53,8 @@ t_philo *construct_philos(t_properties *data)
     return(philo);
 }
 
-t_properties *constructor(char **av)
+void	constructor(t_properties *data, char **av)
 {
-    t_properties *data;
-
-    data = (t_properties *)malloc(sizeof(t_properties));
     if (!check_syntax(av))
     {
         data->philo_number = ft_atoi(av[1]);
@@ -73,7 +69,5 @@ t_properties *constructor(char **av)
         data->time_of_start = getcurrenttime();
         init_mutex(data);
         data->philo = construct_philos(data);
-        return(data);
     }
-    return(NULL);
 }
