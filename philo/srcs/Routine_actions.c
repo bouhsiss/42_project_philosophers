@@ -21,8 +21,6 @@ void	philo_eat(t_philo *philo)
 	print_status(philo, "is eating");
 	philo->last_meal = getcurrenttime();
 	philo->meals_counter++;
-	if(philo->meals_counter == philo->data->meals_nbr)
-		philo->data->well_fed_philos++;
 	pthread_mutex_unlock(&(philo->can_eat));
 	ft_usleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(&(philo->data->forks[philo->r_fork]));

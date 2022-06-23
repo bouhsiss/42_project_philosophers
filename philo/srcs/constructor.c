@@ -77,8 +77,6 @@ void	constructor(t_properties *data, char **av)
 			data->meals_nbr = ft_atoi(av[5]);
 		else
 			data->meals_nbr = -1;
-		data->well_fed_philos = 0;
-		data->should_end = 0;
 		data->time_of_start = getcurrenttime();
 		init_mutex(data);
 		data->philo = construct_philos(data);

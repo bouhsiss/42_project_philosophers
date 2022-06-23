@@ -32,10 +32,10 @@ int	meals_tracker(t_properties *data)
 
 int	track_philos(t_properties *data)
 {
-	int	i;
+	int			i;
 	long long	timeframe;
 
-	while (!data->should_end)
+	while (1)
 	{
 		i = -1;
 		while (++i < data->philo_number)
@@ -45,14 +45,10 @@ int	track_philos(t_properties *data)
 			if (timeframe >= data->time_to_die)
 			{
 				print_status(&data->philo[i], "died");
-				data->should_end = 1;
 				return (0);
 			}
-			if (data->well_fed_philos == data->meals_nbr)
-			{
-				data->should_end=1;
+			if (!meals_tracker(data))
 				return (0);
-			}
 			pthread_mutex_unlock(&(data->philo[i].can_eat));
 		}
 	}
