@@ -42,6 +42,7 @@ void	init_mutex(t_properties *data)
 		i++;
 	}
 	pthread_mutex_init(&(data->write), NULL);
+	pthread_mutex_init(&(data->can_eat),NULL);
 }
 
 t_philo	*construct_philos(t_properties *data)
@@ -60,12 +61,11 @@ t_philo	*construct_philos(t_properties *data)
 		philo[i].l_fork = (i + 1) % philo_number;
 		philo[i].meals_counter = 0;
 		philo[i].data = data;
-		pthread_mutex_init(&(philo[i].can_eat), NULL);
 	}
 	return (philo);
 }
 
-void	constructor(t_properties *data, char **av)
+int	constructor(t_properties *data, char **av)
 {
 	if (!check_syntax(av))
 	{
@@ -78,7 +78,11 @@ void	constructor(t_properties *data, char **av)
 		else
 			data->meals_nbr = -1;
 		data->time_of_start = getcurrenttime();
+		data->well_fed_philos = 0;
 		init_mutex(data);
 		data->philo = construct_philos(data);
+		return(1);
 	}
+	else
+		return(0);
 }

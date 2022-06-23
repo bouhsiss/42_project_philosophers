@@ -18,7 +18,7 @@ SRCS = main.c \
 ./srcs/philo_tools/Time_tools.c \
 ./srcs/constructor.c \
 ./srcs/Routine_actions.c \
-./srcs/start_philos.c \
+./srcs/launch_philos.c \
 ./srcs/track_philos.c \
 
 

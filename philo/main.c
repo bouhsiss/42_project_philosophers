@@ -13,13 +13,13 @@
 
 int	main(int ac, char **av)
 {
-	t_properties	*data;
+	t_properties	*data = NULL;
 
 	if (ac == 5 || ac == 6)
 	{
 		data = (t_properties *)malloc(sizeof(t_properties));
-		constructor(data, av);
-		if (!data)
+		// constructor(data, av);
+		if (!constructor(data, av) || data->meals_nbr == 0)
 			print_error("Error : invalid argument");
 		launch_philos(data);
 		track_philos(data);
