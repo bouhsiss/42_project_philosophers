@@ -42,7 +42,7 @@ void	init_mutex(t_properties *data)
 		i++;
 	}
 	pthread_mutex_init(&(data->write), NULL);
-	pthread_mutex_init(&(data->can_eat),NULL);
+	pthread_mutex_init(&(data->can_eat), NULL);
 }
 
 t_philo	*construct_philos(t_properties *data)
@@ -81,8 +81,8 @@ int	constructor(t_properties *data, char **av)
 		data->well_fed_philos = 0;
 		init_mutex(data);
 		data->philo = construct_philos(data);
-		return(1);
+		return (1);
 	}
 	else
-		return(0);
+		return (0);
 }

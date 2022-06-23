@@ -40,7 +40,7 @@ typedef struct s_properties
 	long long		time_of_start;
 	int				well_fed_philos;
 	pthread_mutex_t	write;
-	pthread_mutex_t		can_eat;
+	pthread_mutex_t	can_eat;
 	pthread_mutex_t	*forks;
 	t_philo			*philo;
 }	t_properties;
@@ -55,7 +55,7 @@ int			print_error(char *error_message);
 long long	getcurrenttime(void);
 void		ft_usleep(int time);
 void		print_status(t_philo *philo, char *status);
-int 		constructor(t_properties *data, char **av);
+int			constructor(t_properties *data, char **av);
 //main_func
 void		launch_philos(t_properties *data);
 int			track_philos(t_properties *data);

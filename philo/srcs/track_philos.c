@@ -48,7 +48,7 @@ int	track_philos(t_properties *data)
 				return (0);
 			}
 			if (data->well_fed_philos == data->philo_number)
-				return(0);	
+				return (0);	
 			pthread_mutex_unlock(&(data->can_eat));
 		}
 	}
