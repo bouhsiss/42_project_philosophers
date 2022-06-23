@@ -8,7 +8,7 @@ CYAN = \033[0;36m
 
 NAME = philo
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
 TFLAGS = -lpthread
 INCLUDES = -I ./Includes
 SRCS = main.c \

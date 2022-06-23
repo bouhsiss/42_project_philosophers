@@ -40,6 +40,7 @@ typedef struct s_properties
 	int				meals_nbr;
 	long long		time_of_start;
 	int				should_end;
+	int				well_fed_philos;
 	pthread_mutex_t	write;
 	pthread_mutex_t	*forks;
 	t_philo			*philo;

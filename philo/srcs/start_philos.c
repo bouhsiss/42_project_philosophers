@@ -35,6 +35,6 @@ void	launch_philos(t_properties *data)
 		data->philo[i].last_meal = getcurrenttime();
 		pthread_create(&(data->philo[i].philo_t), NULL, &routine,
 			&(data->philo[i]));
-		usleep(100);
+		usleep(50);
 	}
 }
