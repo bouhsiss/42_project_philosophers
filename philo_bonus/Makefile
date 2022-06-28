@@ -6,29 +6,36 @@ BLUE = \033[0;34m
 MAGENTA = \033[0;35m
 CYAN = \033[0;36m
 
-NAME = philo
+NAME = philo_bonus
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
+CFLAGS = -Wall -Wextra -Werror -g #-fsanitize=thread
 TFLAGS = -lpthread
 INCLUDES = -I ./Includes
 SRCS = main.c \
-./srcs/philo_tools/ft_atoi.c \
-./srcs/philo_tools/Print_error.c \
-./srcs/philo_tools/print_status.c \
-./srcs/philo_tools/Time_tools.c \
+./srcs/philo_bonus_tools/ft_atoi.c \
+./srcs/philo_bonus_tools/Print_error.c \
+./srcs/philo_bonus_tools/Time_tools.c \
+./srcs/philo_bonus_tools/print_status.c \
 ./srcs/constructor.c \
-./srcs/Routine_actions.c \
 ./srcs/launch_philos.c \
-./srcs/track_philos.c \
-
+./srcs/routine_actions.c \
 
 all : $(NAME)
 
 
-$(NAME) : $(SRCS)
-	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(NAME) 
+$(NAME) : $(LIB) $(SRCS)
+	$(CC) $(CFLAGS) $(INCLUDES) $(SRCS) -o $(NAME)
 	@echo "\n====== $(NAME) compiling finished ======"
 	@echo "==========================================${NC}\n"
+
+bonus : $(BONUS)
+	@echo "${MAGENTA}====================================="
+	$(CC) $(CFLAGS) $(SRCS)  -o $(NAME)
+	$(CC) $(CFLAGS) $(BONUS_SRCS)  -o $(BONUS_NAME)
+	@echo "\n====== $(BONUS_NAME) compiling finished ======"
+	@echo "==========================================\n${NC}"
+
+
 
 clean :
 	@echo "${RED}====================================="
