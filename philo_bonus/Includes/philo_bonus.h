@@ -28,7 +28,7 @@ typedef struct s_properties
 	int		time_to_sleep;
 	int		meals_nbr;
 	long long	time_of_start;
-	sem_t		*well_fed_philos;
+	sem_t		*meals_tracker;
 	sem_t		*write;
 	sem_t		*can_eat;
 	sem_t		*forks;

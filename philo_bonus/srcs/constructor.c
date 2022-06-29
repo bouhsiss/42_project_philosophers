@@ -26,10 +26,11 @@ void init_sem(t_properties *data)
 	sem_unlink("forks_sem");
 	sem_unlink("write_sem");
 	sem_unlink("can_eat_sem");
+	sem_unlink("meals_tracker");
 	data->forks = sem_open("forks_sem", O_CREAT, 0644, data->philo_number);
 	data->write = sem_open("write_sem", O_CREAT, 0644, 1);
 	data->can_eat = sem_open("can_eat_sem", O_CREAT, 0644, 1);
-	data->well_fed_philos = sem_open("suervisor", O_CREAT, 0644, 0);
+	data->meals_tracker = sem_open("meals_tracker", O_CREAT, 0644, 0);
 }
 
 t_philo *construct_philos(t_properties *data)

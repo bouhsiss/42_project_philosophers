@@ -20,6 +20,12 @@ void *death_tracker(void *philo_struct)
 	return(0);
 }
 
+/*
+this function is tracking the philos meals using a semaphore
+it keeps decrementing the semaphore (that we increment every time a philo take a meal) since all the philos didn't take their first meal
+and then it redo the same operation until they take all the meals
+*/
+
 void *meals_tracker(void *data_struct)
 {
 	t_properties *data;
@@ -33,7 +39,7 @@ void *meals_tracker(void *data_struct)
 		i = 0;
 		while (i < data->philo_number)
 		{
-			sem_wait(data->well_fed_philos);
+			sem_wait(data->meals_tracker);
 			i++;
 		}
 		count++;
