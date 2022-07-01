@@ -44,10 +44,5 @@ long long	getcurrenttime(void);
 void	launch_philos(t_properties *data);
 void philo_routine(t_philo *philo);
 void print_status(t_philo *philo, char *message);
-void *death_tracker(void *philo_struct);
-void *meals_tracker(void *data_struct);
-void	ft_putendl_fd(char *s, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
 
 #endif

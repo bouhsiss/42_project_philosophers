@@ -3,14 +3,15 @@
 void philo_eat(t_philo *philo)
 {
 	sem_wait(philo->data->forks);
-	print_status(philo, " has taken a fork");
+	print_status(philo, "has taken a fork");
 	sem_wait(philo->data->forks);
-	print_status(philo, " has taken a fork");
+	print_status(philo, "has taken a fork");
 	sem_wait(philo->data->can_eat);
-	print_status(philo, " is eating");
+	print_status(philo, "is eating");
 	philo->last_meal = getcurrenttime();
 	philo->meals_counter++;
-	sem_post(philo->data->meals_tracker);
+	if (philo->meals_counter == philo->data->meals_nbr)
+		sem_post(philo->data->meals_tracker);
 	sem_post(philo->data->can_eat);
 	ft_usleep(philo->data->time_to_eat);
 	sem_post(philo->data->forks);
@@ -19,13 +20,13 @@ void philo_eat(t_philo *philo)
 
 void philo_sleep(t_philo *philo)
 {
-	print_status(philo, " is sleeping");
+	print_status(philo, "is sleeping");
 	ft_usleep(philo->data->time_to_sleep);
 }
 
 void philo_think(t_philo *philo)
 {
-	print_status(philo, " is thinking");
+	print_status(philo, "is thinking");
 }
 
 void philo_routine(t_philo *philo)
