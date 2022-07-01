@@ -19,6 +19,8 @@ SRCS = main.c \
 ./srcs/constructor.c \
 ./srcs/launch_philos.c \
 ./srcs/routine_actions.c \
+./srcs/tracker.c \
+./srcs/philo_bonus_tools/print_tools.c \
 
 all : $(NAME)
 

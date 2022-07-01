@@ -56,6 +56,10 @@ long long	getcurrenttime(void);
 void		ft_usleep(int time);
 void		print_status(t_philo *philo, char *status);
 int			constructor(t_properties *data, char **av);
+void		ft_putendl_fd(char *s, int fd);
+void		ft_putstr_fd(char *s, int fd);
+void		ft_putnbr_fd(int n, int fd);
+
 //main_func
 void		launch_philos(t_properties *data);
 int			track_philos(t_properties *data);

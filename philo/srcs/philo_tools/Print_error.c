@@ -13,6 +13,6 @@
 
 int	print_error(char *error_message)
 {
-	printf("%s\n", error_message);
+	ft_putendl_fd(error_message, 1);
 	exit(1);
 }

@@ -25,7 +25,7 @@ int	track_philos(t_properties *data)
 			timeframe = getcurrenttime() - data->philo[i].last_meal;
 			if (timeframe >= data->time_to_die)
 			{
-				print_status(&data->philo[i], "died");
+				print_status(&data->philo[i], " died");
 				return (0);
 			}
 			if (data->well_fed_philos == data->philo_number)

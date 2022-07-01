@@ -20,6 +20,7 @@ SRCS = main.c \
 ./srcs/Routine_actions.c \
 ./srcs/launch_philos.c \
 ./srcs/track_philos.c \
+./srcs/philo_tools/print_tools.c \
 
 
 all : $(NAME)
