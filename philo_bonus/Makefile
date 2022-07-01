@@ -16,9 +16,11 @@ SRCS = philo_bonus.c \
 ./srcs/philo_bonus_tools/Print_error.c \
 ./srcs/philo_bonus_tools/Time_tools.c \
 ./srcs/philo_bonus_tools/print_status.c \
+./srcs/philo_bonus_tools/print_tools.c \
 ./srcs/constructor.c \
 ./srcs/launch_philos.c \
 ./srcs/routine_actions.c \
+./srcs/track_philos.c \
 
 all : $(NAME)
 

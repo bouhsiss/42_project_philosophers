@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbouhsis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -24,6 +24,6 @@ int	main(int ac, char **av)
 		track_philos(data);
 	}
 	else
-		printf("Usage : <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> \
+		print_error("Usage : <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> \
 <number_of_times_each_philosopher_must_eat>");
 }
