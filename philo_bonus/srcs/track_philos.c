@@ -54,7 +54,6 @@ void	*meals_tracker(void *data_struct)
 	}
 	sem_wait(data->write);
 	i = -1;
-	while (++i < data->philo_number)
-		kill(data->philo[i].philo_pid, SIGKILL);
+	destructor(data);
 	return (NULL);
 }

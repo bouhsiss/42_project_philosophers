@@ -23,15 +23,6 @@ void	philo_routine(t_philo *philo)
 	}
 }
 
-void	kill_processes(t_properties *data)
-{
-	int	i;
-
-	i = -1;
-	while (++i < data->philo_number)
-		kill(data->philo[i].philo_pid, SIGKILL);
-}
-
 void	launch_philos(t_properties *data)
 {
 	int			i;
@@ -56,5 +47,5 @@ void	launch_philos(t_properties *data)
 		}
 	}
 	waitpid(-1, &stat_var, 0);
-	kill_processes(data);
+	destructor(data);
 }

@@ -11,7 +11,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror #-fsanitize=thread -g
 TFLAGS = -lpthread
 INCLUDES = -I ./Includes
-SRCS = main.c \
+SRCS = philo.c \
 ./srcs/philo_tools/ft_atoi.c \
 ./srcs/philo_tools/Print_error.c \
 ./srcs/philo_tools/print_status.c \

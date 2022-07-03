@@ -1,40 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   start_philos.c                                     :+:      :+:    :+:   */
+/*   destructor.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbouhsis <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/23 01:48:47 by hbouhsis          #+#    #+#             */
-/*   Updated: 2022/06/23 01:48:48 by hbouhsis         ###   ########.fr       */
+/*   Created: 2022/07/03 17:47:55 by hbouhsis          #+#    #+#             */
+/*   Updated: 2022/07/03 17:47:57 by hbouhsis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include"philo.h"
 
-void	*routine(void *philo_struct)
-{
-	t_philo	*philo;
+#include"philo_bonus.h"
 
-	philo = (t_philo *)philo_struct;
-	while (666)
-	{
-		philo_eat(philo);
-		philo_sleep(philo);
-		philo_think(philo);
-	}
-	return (NULL);
-}
-
-void	launch_philos(t_properties *data)
+void	destructor(t_properties *data)
 {
 	int	i;
 
 	i = -1;
+	sem_unlink("/forks_sem");
+	sem_unlink("/write_sem");
+	sem_unlink("/can_eat_sem");
+	sem_unlink("/well_fed_philos");
 	while (++i < data->philo_number)
-	{
-		data->philo[i].last_meal = getcurrenttime();
-		pthread_create(&(data->philo[i].philo_t), NULL, &routine,
-			&(data->philo[i]));
-		usleep(100);
-	}
+		kill(data->philo[i].philo_pid, SIGKILL);
 }

@@ -49,7 +49,7 @@ typedef struct s_properties
 
 int			constructor(t_properties *data, char **av);
 int			print_error(char *error_message);
-in			ft_atoi(const char *str);
+int			ft_atoi(const char *str);
 void		print_status(t_philo *philo, char *status);
 void		ft_usleep(int time);
 long long	getcurrenttime(void);
@@ -63,5 +63,6 @@ void		*meals_tracker(void *data_struct);
 void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
+void		destructor(t_properties *data);
 
 #endif

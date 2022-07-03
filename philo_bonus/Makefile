@@ -21,6 +21,7 @@ SRCS = philo_bonus.c \
 ./srcs/launch_philos.c \
 ./srcs/routine_actions.c \
 ./srcs/track_philos.c \
+./srcs/destructor.c
 
 all : $(NAME)
 
