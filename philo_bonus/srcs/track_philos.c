@@ -43,17 +43,18 @@ and then it redo the same operation until they take all the meals
 void	*meals_tracker(void *data_struct)
 {
 	t_properties	*data;
-	int				i;
+	int				philo_counter;
+	int				meals_counter;
 
-	i = 0;
 	data = (t_properties *)data_struct;
-	while (i < data->philo_number)
+	meals_counter = -1;
+	while (++meals_counter < data->meals_nbr)
 	{
-		sem_wait(data->well_fed_philos);
-		i++;
+		philo_counter = -1;
+		while (++philo_counter < data->philo_number)
+			sem_wait(data->well_fed_philos);
 	}
 	sem_wait(data->write);
-	i = -1;
 	destructor(data);
 	return (NULL);
 }
