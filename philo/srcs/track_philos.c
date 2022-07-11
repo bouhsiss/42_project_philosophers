@@ -16,21 +16,24 @@ int	track_philos(t_properties *data)
 	int			i;
 	long long	timeframe;
 
-	while (1)
+	if (data->philo_number)
 	{
-		i = -1;
-		while (++i < data->philo_number)
+		while (1)
 		{
-			pthread_mutex_lock(&(data->can_eat));
-			timeframe = getcurrenttime() - data->philo[i].last_meal;
-			if (timeframe >= data->time_to_die)
+			i = -1;
+			while (++i < data->philo_number)
 			{
-				print_status(&data->philo[i], " died");
-				return (0);
+				pthread_mutex_lock(&(data->can_eat));
+				timeframe = getcurrenttime() - data->philo[i].last_meal;
+				if (timeframe >= data->time_to_die)
+				{
+					print_status(&data->philo[i], " died");
+					return (0);
+				}
+				if (data->well_fed_philos == data->philo_number)
+					return (0);
+				pthread_mutex_unlock(&(data->can_eat));
 			}
-			if (data->well_fed_philos == data->philo_number)
-				return (0);
-			pthread_mutex_unlock(&(data->can_eat));
 		}
 	}
 	return (0);
